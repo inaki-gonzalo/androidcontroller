@@ -1,0 +1,17 @@
+echo "You are in command mode, execute something"
+while true;
+do
+        read -sn1 letter
+	if [[ "$letter" == "" ]]
+	then 
+		echo '`' >> ./commands
+	else
+		echo "$letter" >> ./commands
+	fi
+	if [[ "$letter" == "."  ]];
+                  then
+                           echo "scape"
+                  break
+        fi
+
+done
