@@ -1,0 +1,105 @@
+from com.android.monkeyrunner import MonkeyRunner, MonkeyDevice
+print ("Waitng for device")
+device = MonkeyRunner.waitForConnection()
+print ("Connected")
+from subprocess import call
+from subprocess import Popen, PIPE
+import time
+while True:
+	ls = Popen(['ls'], stdin=PIPE, stdout=PIPE, stderr=PIPE)
+        result1,err= ls.communicate()
+	if result1 == "commands\n":
+		cat = Popen(['cat','commands'], stdin=PIPE, stdout=PIPE, stderr=PIPE)
+		result,err= cat.communicate()
+		rm = Popen(['rm','commands'], stdin=PIPE, stdout=PIPE, stderr=PIPE)
+		arr=result.split( );
+		for i in range(len(arr)):
+			 #if m<arr[i]:
+			if arr[i] == "a":
+				print arr[i]
+				device.press('KEYCODE_A')
+			if arr[i] == "b":
+				print arr[i]
+				device.press('KEYCODE_B')
+			if arr[i] == "c":
+				print arr[i]
+				device.press('KEYCODE_C')
+			if arr[i] == "d":
+				print arr[i]
+				device.press('KEYCODE_D')
+			if arr[i] == "e":
+				print arr[i]
+				device.press('KEYCODE_E')
+			if arr[i] == "f":
+				print arr[i]
+				device.press('KEYCODE_F')
+			if arr[i] == "g":
+				print arr[i]
+				device.press('KEYCODE_G')
+			if arr[i] == "h":
+				print arr[i]
+				device.press('KEYCODE_H')
+			if arr[i] == "i":
+				print arr[i]
+				device.press('KEYCODE_I')
+			if arr[i] == "j":
+				print arr[i]
+				device.press('KEYCODE_J')
+			if arr[i] == "k":
+				print arr[i]
+				device.press('KEYCODE_K')
+			if arr[i] == "l":
+				print arr[i]
+				device.press('KEYCODE_L')
+			if arr[i] == "m":
+				print arr[i]
+				device.press('KEYCODE_M')
+			if arr[i] == "n":
+				print arr[i]
+				device.press('KEYCODE_N')
+			if arr[i] == "o":
+				print arr[i]
+				device.press('KEYCODE_O')
+			if arr[i] == "p":
+				print arr[i]
+				device.press('KEYCODE_P')
+			if arr[i] == "q":
+				print arr[i]
+				device.press('KEYCODE_Q')
+			if arr[i] == "r":
+				print arr[i]
+				device.press('KEYCODE_R')
+			if arr[i] == "s":
+				print arr[i]
+				device.press('KEYCODE_S')
+			if arr[i] == "t":
+				device.press('KEYCODE_T')
+				print arr[i]
+			if arr[i] == "u":
+				device.press('KEYCODE_U')
+				print arr[i]
+			if arr[i] == "v":
+				device.press('KEYCODE_V')
+				print arr[i]
+			if arr[i] == "w":
+				device.press('KEYCODE_W')
+				print arr[i]
+			if arr[i] == "x":
+				print arr[i]
+				device.press('KEYCODE_X')
+			if arr[i] == "y":
+				print arr[i]
+				device.press('KEYCODE_Y')
+			if arr[i] == "z":
+				device.press('KEYCODE_Z')
+				print arr[i]
+			if arr[i] == "`":
+				print ("space")
+				device.press('KEYCODE_SPACE')
+	time.sleep(0.3)
+
+if result == "a\n":
+	device.press('KEYCODE_A')
+	print("IM an A")
+print ("IM B")
+device.press('KEYCODE_B')
