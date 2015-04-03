@@ -1,4 +1,16 @@
-echo "You are in command mode, execute something"
+function commandModeEcho {
+	echo 'You are in command mode
+. to terminate
+enter to enter
+i to go into insert mode
+backspace to go back
+home to go home
+use arrow to navigate
+
+
+'
+}
+commandModeEcho
 while true;
 do
     read -sn1 letter
@@ -8,23 +20,18 @@ do
 		var="$letter$temp"
 		case "$var" in
 		'[A')
-			 echo 'up'
 			 echo 'up' >> ./commands
 		;;
 		'[B')
-			 echo 'down'
 			 echo 'down' >> ./commands
 			;;
 		'[C')
-			 echo 'right'
 			 echo 'right' >> ./commands
 			;;
 		'[D')
-			 echo 'left'
 			 echo 'left' >> ./commands
 			;;
 		'[H')
-			 echo 'home'
 			 echo 'home' >> ./commands
 			;;
 
@@ -37,17 +44,21 @@ do
 	elif [[ "$letter" == "" ]]
                 then
                         echo 'enter' >> ./commands
-			echo 'enter'
 	elif [[ "$letter" == "i" ]]
                 then
 			commandMode="False"
+			echo 'Entering insertMode
+anything you type will be literally sent,
+press esc to go back to command mode
+
+
+'
 	elif [[ "$letter" == "" ]]
                 then
-                        echo back
                         echo 'back' >> ./commands
 	elif [[ "$letter" == "."  ]];
 		then
-		echo "escape"
+		echo "Exiting..."
 		break
 	fi
 
@@ -58,13 +69,12 @@ do
 		if [[ "$letter" == '' ]]
        		then
 			commandMode="True"
+			commandModeEcho
 		elif [[ "$letter" == "" ]]
 		then 
 			echo 'space' >> ./commands
-			echo 'space'
 		elif [[ "$letter" == "" ]]
 		then 
-			echo delete
 			echo 'delete' >> ./commands
 		
 		else
