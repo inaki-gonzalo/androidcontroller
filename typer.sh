@@ -19,7 +19,7 @@ do
     read -sn1 letter
     if [[ "$letter" == '' ]]
 	then
-		read -sn2 temp
+		read -sn2 -t 0.1 temp
 		var="$letter$temp"
 		case "$var" in
 		'[A')
