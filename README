@@ -1,5 +1,5 @@
 This shell scripts let you send keyevents
-to your android device and controll it.
+to your android device and control it.
 Prerequisites
 have android-sdk installed and the sdk added to PATH
 Running it 
