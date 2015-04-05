@@ -6,6 +6,7 @@ then
 	rm -r currentSession
 fi
 }
+startADB=$(adb get-state)
 device=$(adb devices | awk 'NR==2{print $1}')
 if [[ "$device" == "" ]]
 then

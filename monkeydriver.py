@@ -1,3 +1,4 @@
+import sys
 from com.android.monkeyrunner import MonkeyRunner, MonkeyDevice
 print ("Waitng for device")
 try:
@@ -6,7 +7,10 @@ try:
 except:
 	device = None
 	print ("Exiting")
-	exit()
+	sys.exit()
+if device == None or device is None:
+	print ("Exiting")
+	sys.exit(1)
 print ("Connected")
 from subprocess import call
 from subprocess import Popen, PIPE
