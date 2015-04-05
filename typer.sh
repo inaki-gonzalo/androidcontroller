@@ -1,15 +1,18 @@
 function commandModeEcho {
 	echo 'You are in command mode
-. to terminate
-enter to enter
-i to go into insert mode
-backspace to go back
-home to go home
-use arrow to navigate
+. terminate, [enter] enter, i insert mode,[home] home, arrows to navigate
 
 
 '
 }
+function insertModeEcho {
+        echo 'You are in insert mode
+anything you type will be literally sent, [esc] command mode
+
+
+'
+}
+
 commandModeEcho
 while true;
 do
@@ -47,12 +50,7 @@ do
 	elif [[ "$letter" == "i" ]]
                 then
 			commandMode="False"
-			echo 'Entering insertMode
-anything you type will be literally sent,
-press esc to go back to command mode
-
-
-'
+			insertModeEcho
 	elif [[ "$letter" == "" ]]
                 then
                         echo 'back' >> ./commands
