@@ -1,10 +1,12 @@
 #! /bin/bash
+trap '' INT
 function deleteSession {
 if [[ -d "currentSession" ]]
 then 
 	rm -r currentSession
 fi
 }
+adb devices | awk 'NR==2{print $1, "is available"}'
 deleteSession
 dirError=$(mkdir currentSession 2>&1)
 if [[ ! "$dirError" == "" ]]

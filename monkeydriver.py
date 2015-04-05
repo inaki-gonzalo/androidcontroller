@@ -1,6 +1,12 @@
 from com.android.monkeyrunner import MonkeyRunner, MonkeyDevice
 print ("Waitng for device")
-device = MonkeyRunner.waitForConnection()
+try:
+	device = MonkeyRunner.waitForConnection(10)
+	strProperty = device.getProperty('model')
+except:
+	device = None
+	print ("Exiting")
+	exit()
 print ("Connected")
 from subprocess import call
 from subprocess import Popen, PIPE

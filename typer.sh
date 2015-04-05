@@ -1,3 +1,4 @@
+trap 'echo "Go into command mode and press ."' INT
 function commandModeEcho {
 	echo 'You are in command mode
 . terminate, [enter] enter, i insert mode,[home] home, arrows to navigate
