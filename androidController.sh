@@ -6,12 +6,21 @@ then
 	rm -r currentSession
 fi
 }
-adb devices | awk 'NR==2{print $1, "is available"}'
+device=$(adb devices | awk 'NR==2{print $1}')
+if [[ "$device" == "" ]]
+then
+	echo "No devices found, exiting..."
+	exit 1
+fi
+echo "Attempting to connect to $device"
+
 deleteSession
 dirError=$(mkdir currentSession 2>&1)
 if [[ ! "$dirError" == "" ]]
 then
 	echo "$dirError"
+	echo "An Error occured, exiting..."
+	exit 1
 fi
 cd currentSession
 monkeyrunner ../monkeydriver.py &
