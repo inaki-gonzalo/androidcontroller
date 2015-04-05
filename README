@@ -3,5 +3,5 @@ to your android device and controll it.
 Prerequisites
 have android-sdk installed and the sdk added to PATH
 Running it 
-bash ./androidcontroll.sh
+bash ./androidControll.sh
 
